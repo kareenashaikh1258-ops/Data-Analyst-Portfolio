@@ -2,420 +2,541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kareena Shaikh | Data Analyst Portfolio</title>
-<meta name="description" content="Portfolio of a B.Sc. Data Science student and aspiring Data Analyst, showcasing projects in Python, SQL and Power BI.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root {
-    --bg: #080d18;
-    --surface: #101a2b;
-    --surface-light: #152238;
-    --blue: #55b8ff;
-    --text: #f1f5fb;
-    --muted: #a5b2c5;
-    --border: #26364d;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, sans-serif;
-    line-height: 1.7;
-}
-a {
-    color: inherit;
-    text-decoration: none;
-}
-.container {
-    width: min(1100px, 90%);
-    margin: auto;
-}
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(8,13,24,.95);
-    border-bottom: 1px solid var(--border);
-}
-nav {
-    min-height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-.logo {
-    font-size: 21px;
-    font-weight: bold;
-}
-.logo span, .accent {
-    color: var(--blue);
-}
-.nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    color: var(--muted);
-    font-size: 14px;
-}
-.nav-links a:hover {
-    color: var(--blue);
-}
-.hero {
-    min-height: 570px;
-    display: flex;
-    align-items: center;
-    padding: 90px 0;
-}
-.eyebrow {
-    color: var(--blue);
-    letter-spacing: 2px;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-h1 {
-    font-size: clamp(40px, 7vw, 68px);
-    line-height: 1.12;
-    margin: 18px 0;
-}
-.hero h2 {
-    font-size: clamp(19px, 3vw, 27px);
-    color: var(--muted);
-    font-weight: 500;
-}
-.hero p {
-    color: var(--muted);
-    max-width: 650px;
-    margin: 22px 0 30px;
-}
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-.btn {
-    display: inline-block;
-    padding: 12px 23px;
-    border-radius: 7px;
-    border: 1px solid var(--blue);
-    font-weight: bold;
-    transition: .25s;
-}
-.btn.primary {
-    background: var(--blue);
-    color: #07111e;
-}
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px #55b8ff25;
-}
-section {
-    padding: 85px 0;
-    border-top: 1px solid var(--border);
-}
-.section-title {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-.section-subtitle {
-    color: var(--muted);
-    margin-bottom: 35px;
-}
-.about-text {
-    color: var(--muted);
-    max-width: 850px;
-}
-.skills-grid, .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.skill-card, .project-card, .info-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 25px;
-    transition: .25s;
-}
-.skill-card:hover, .project-card:hover, .info-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--blue);
-}
-.skill-card h3, .project-card h3 {
-    margin-bottom: 12px;
-}
-.skill-card p, .project-card p, .info-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-.project-card {
-    display: flex;
-    flex-direction: column;
-    min-height: 270px;
-}
-.project-card p {
-    flex: 1;
-}
-.project-status {
-    display: inline-block;
-    font-size: 12px;
-    color: var(--blue);
-    background: #55b8ff16;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin: 15px 0;
-    width: fit-content;
-}
-.project-status.progress {
-    color: #f3c66a;
-    background: #f3c66a16;
-}
-.project-status.planned {
-    color: #b7a4ff;
-    background: #b7a4ff16;
-}
-.project-link {
-    color: var(--blue);
-    font-size: 14px;
-    font-weight: bold;
-}
-.journey {
-    max-width: 700px;
-    border-left: 2px solid var(--blue);
-    padding-left: 25px;
-}
-.journey h3 {
-    margin-bottom: 8px;
-}
-.journey p {
-    color: var(--muted);
-}
-.contact-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px;
-}
-.contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 25px;
-}
-.contact-links a {
-    color: var(--blue);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 10px 16px;
-}
-footer {
-    border-top: 1px solid var(--border);
-    padding: 25px 0;
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-}
-@media(max-width: 750px) {
-    .nav-links {
-        gap: 12px;
-        font-size: 12px;
-    }
-    .skills-grid, .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    .hero {
-        min-height: 480px;
-        padding: 65px 0;
-    }
-    section {
-        padding: 65px 0;
-    }
-}
-</style>
+    <title>Data Analyst Portfolio | Kareena Shaikh</title>
+
+    <meta name="description" content="Kareena Shaikh - Final-year B.Sc. Data Science student and aspiring Data Analyst. Explore my projects and technical skills.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            color: #2563eb;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #334155;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            padding: 100px 8%;
+            background: linear-gradient(120deg, #eff6ff, #ffffff);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: white;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+        }
+
+        section {
+            padding: 75px 8%;
+        }
+
+        /* Section Headings */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #0f172a;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* About */
+
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #475569;
+        }
+
+        /* Skills */
+
+        .skills {
+            background: #eff6ff;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            color: #1d4ed8;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        /* Projects */
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-card h3 {
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Project Images */
+
+        .project-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+            background: #f1f5f9;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        /* Project Tags */
+
+        .project-tag {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 4px;
+            padding: 5px 10px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Project Status */
+
+        .status {
+            font-weight: bold;
+            color: #334155 !important;
+            margin-top: 15px !important;
+        }
+
+        /* Contact */
+
+        .contact {
+            background: #eff6ff;
+            text-align: center;
+        }
+
+        .contact p {
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 650px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero {
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-<header>
-    <nav class="container">
-        <a class="logo" href="#home">K<span>.</span>S</a>
-        <div class="nav-links">
+    <!-- Navigation -->
+
+    <header>
+
+        <div class="logo">Kareena Shaikh.</div>
+
+        <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
-        </div>
-    </nav>
-</header>
+        </nav>
 
-<main>
-<section class="hero" id="home">
-    <div class="container">
-        <div class="eyebrow">Hello, welcome to my portfolio</div>
-        <h1>Kareena <span class="accent">Shaikh</span></h1>
-        <h2>Aspiring Data Analyst | B.Sc. Data Science Student</h2>
+    </header>
+
+    <!-- Home -->
+
+    <section class="hero" id="home">
+
+        <h1>Hello, I'm <span>Kareena Shaikh</span></h1>
+
         <p>
-            Building data analytics skills with Python, SQL, and Power BI
-            to explore datasets, discover patterns, and uncover meaningful insights.
+            Aspiring Data Analyst | B.Sc. Data Science Student
+            <br>
+            Turning raw data into meaningful insights.
         </p>
-        <div class="buttons">
-            <a class="btn primary" href="#projects">Explore My Projects</a>
-            <a class="btn" href="#contact">Get in Touch</a>
+
+        <a href="#projects" class="btn">Explore My Projects</a>
+
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+    </section>
+
+    <!-- About -->
+
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Get to know me</p>
         </div>
-    </div>
-</section>
 
-<section id="about">
-    <div class="container">
-        <div class="eyebrow">Get to know me</div>
-        <h2 class="section-title">About Me</h2>
-        <p class="about-text">
-            I am a final-year B.Sc. Data Science student aspiring to build a career in Data Analytics. 
-            I am passionate about exploring data, identifying patterns, 
-            and transforming information into meaningful insights.
+        <div class="about">
 
-            I am developing my practical skills in Python, SQL, Power BI, 
-            and data visualization through hands-on projects. I enjoy learning new technologies and
-            solving problems using data.
-
-            My goal is to apply my analytical knowledge to real-world challenges 
-            and continuously grow as a Data Analyst.
-        </p>
-    </div>
-</section>
-
-<section id="skills">
-    <div class="container">
-        <div class="eyebrow">What I am learning</div>
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Tools and technologies I use in my learning and projects.</p>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Python</h3>
-                <p>Programming, data manipulation and analysis.</p>
-            </div>
-            <div class="skill-card">
-                <h3>SQL & MySQL</h3>
-                <p>Queries, data retrieval and database management.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Power BI</h3>
-                <p>Dashboards, reports and data visualization.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Pandas & NumPy</h3>
-                <p>Data manipulation and numerical analysis.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Data Visualization</h3>
-                <p>Exploring data and communicating findings.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Tableau</h3>
-                <p>Currently learning data visualization with Tableau.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects">
-    <div class="container">
-        <div class="eyebrow">My practical work</div>
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Projects that demonstrate my learning and problem-solving approach.</p>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>AskData AI</h3>
-                <p>
-                    An intelligent data analysis assistant that allows
-                    users to upload datasets and ask questions using
-                    natural language.
-                </p>
-                <span class="project-status">Completed</span>
-                <a class="project-link"
-                   href="https://askdata-ai-bsvktgscz6oivxz8njytsk.streamlit.app/"
-                   target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Hospital Management & Patient Analysis</h3>
-                <p>
-                    A data analytics project using MySQL and Power BI
-                    to explore hospital and patient-related information.
-                </p>
-                <span class="project-status progress">In Progress</span>
-            </div>
-
-            <div class="project-card">
-                <h3>E-commerce Sales Analysis</h3>
-                <p>
-                    A planned analytics project focused on sales
-                    performance, customer trends and business insights.
-                </p>
-                <span class="project-status planned">Planned</span>
-            </div>
-
-            <div class="project-card">
-                <h3>Mobile Sales Dashboard</h3>
-                <p>
-                    A Power BI dashboard project focused on presenting
-                    mobile sales information through interactive visuals.
-                </p>
-                <span class="project-status">Completed</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="journey">
-    <div class="container">
-        <div class="eyebrow">My background</div>
-        <h2 class="section-title">Education & Journey</h2>
-        <div class="journey">
-            <h3>Bachelor of Science – Data Science</h3>
-            <p>Final Year Student</p>
-            <p>Developing knowledge in data analysis, programming,
-               databases, statistics and data visualization.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <div class="eyebrow">Let's connect</div>
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-card">
             <p>
-                I am interested in learning opportunities, internships
-                and connecting with people in the data analytics field.
-            </p>
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/kareena-shaikh-4b2014341/"
-                   target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                <a href="https://github.com/kareenashaikh1258-ops"
-                   target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
+                I am a final-year B.Sc. Data Science student
+                aspiring to build a career in Data Analytics.
+                I am passionate about exploring data,
+                identifying patterns, and transforming
+                information into meaningful insights.
 
-<footer>
-    <div class="container">
-        © 2026 Kareena Shaikh | Data Analyst Portfolio
-    </div>
-</footer>
+                <br><br>
+
+                I am developing my practical skills in Python,
+                SQL, Power BI, and data visualization through
+                hands-on projects. I enjoy learning new
+                technologies and solving problems using data.
+
+                <br><br>
+
+                My goal is to apply my analytical knowledge
+                to real-world challenges and continuously
+                grow as a Data Analyst.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Skills -->
+
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+            <p>Tools and technologies I am learning and working with</p>
+        </div>
+
+        <div class="skill-list">
+
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Pandas</div>
+            <div class="skill">NumPy</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Data Visualization</div>
+            <div class="skill">Tableau - Learning</div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects -->
+
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Practical projects showcasing my learning and technical skills</p>
+        </div>
+
+        <div class="projects-container">
+
+            <!-- Project 1: AskData AI -->
+
+            <div class="project-card">
+
+                <h3>AskData AI</h3>
+
+                <p><strong>Intelligent Data Analyst Assistant</strong></p>
+
+                <p>
+                    A Python-based application that allows users
+                    to upload CSV and Excel datasets and ask
+                    questions using natural language. It helps
+                    users explore datasets and obtain analytical
+                    insights.
+                </p>
+
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Pandas</span>
+                <span class="project-tag">Streamlit</span>
+
+                <p class="status">Status: Completed</p>
+
+                <a
+                    href="https://askdata-ai-bsvktgscz6oivxz8njytsk.streamlit.app/"
+                    class="btn"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Live Demo
+                </a>
+
+            </div>
+
+            <!-- Project 2: Hospital Analytics -->
+
+            <div class="project-card">
+
+                <img
+                    src="hospital-analytics-dashboard.png"
+                    alt="City Care Hospital Analytics Dashboard"
+                    class="project-image">
+
+                <h3>Hospital Management &amp; Patient Analysis</h3>
+
+                <p>
+                    A healthcare data analytics project using
+                    MySQL, SQL and Power BI to analyze patient
+                    registrations, appointment trends, doctor
+                    performance and hospital revenue.
+                </p>
+
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">Power BI</span>
+
+                <p class="status">Status: In Progress</p>
+
+            </div>
+
+            <!-- Project 3: E-commerce -->
+
+            <div class="project-card">
+
+                <h3>E-commerce Sales Data Analysis</h3>
+
+                <p><strong>Sales and Customer Insights</strong></p>
+
+                <p>
+                    An upcoming data analysis project focused
+                    on exploring e-commerce sales, product
+                    performance, customer purchasing behaviour
+                    and revenue trends.
+                </p>
+
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Power BI</span>
+
+                <p class="status">Status: Planned</p>
+
+            </div>
+
+            <!-- Project 4: Mobile Sales -->
+
+            <div class="project-card">
+
+                <h3>Mobile Sales Dashboard</h3>
+
+                <p>
+                    <strong>
+                        Interactive Business Intelligence Dashboard
+                    </strong>
+                </p>
+
+                <p>
+                    An interactive Power BI dashboard created
+                    to explore mobile sales data and present
+                    business insights through visualizations.
+                </p>
+
+                <span class="project-tag">Power BI</span>
+                <span class="project-tag">Data Visualization</span>
+
+                <p class="status">Status: Completed</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                I am open to learning opportunities,
+                internships and professional connections.
+            </p>
+
+        </div>
+
+        <p>Feel free to explore my profiles and connect with me.</p>
+
+        <a
+            href="https://github.com/kareenashaikh1258-ops"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub Profile
+        </a>
+
+        <a
+            href="https://www.linkedin.com/in/kareena-shaikh-4b2014341/"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer">
+            LinkedIn Profile
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Kareena Shaikh | Data Science Portfolio</p>
+
+    </footer>
 
 </body>
 </html>
